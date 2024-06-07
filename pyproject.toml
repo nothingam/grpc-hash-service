@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "grpc-hasher"
+version = "0.1.0"
+description = "gRPC hasher service"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+grpcio = "^1.39.0"
+grpcio-tools = "^1.39.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

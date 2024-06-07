@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service Hasher {
+  rpc HashMe(stream HashRequest) returns (stream HashResponse);
+}
+
+message HashRequest {
+  bytes data = 1;
+}
+
+message HashResponse {
+  bytes hash = 1;
+}
