@@ -13,16 +13,22 @@ logging.basicConfig(
 
 class HasherServicer(hash_pb2_grpc.HasherServicer):
     def HashMe(self, request_iterator, context):
-        for request in request_iterator:
-            logging.info(f'Received request of size {len(request.data)} bytes.')
-            sha1_hash = hashlib.sha1(request.data).digest()
-            logging.info(f'Sending response with hash {sha1_hash.hex()}.')
-            yield hash_pb2.HashResponse(hash=sha1_hash)
+        logging.info("Heyyaaa!")
+        try:
+            for request in request_iterator:
+                logging.info(f'Received request of size {len(request.data)} bytes.')
+                sha1_hash = hashlib.sha1(request.data).digest()
+                logging.info(f'Sending response with hash {sha1_hash.hex()}.')
+                yield hash_pb2.HashResponse(hash=sha1_hash)
+            logging.info("It's DONE!!!444")
+        except Exception as e:
+            print(e)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     hash_pb2_grpc.add_HasherServicer_to_server(HasherServicer(), server)
-    server.add_secure_port('[::]:50052', grpc.ssl_server_credentials([(SERVER_KEY, SERVER_CERT)]))
+
+    server.add_secure_port('[::]:50052', grpc.tls_server_credentials(SERVER_KEY, SERVER_CERT, "/home/pepe/.ssl-key.log"))
     server.start()
     server.wait_for_termination()
 
