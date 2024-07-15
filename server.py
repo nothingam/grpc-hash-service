@@ -17,6 +17,7 @@ def serve():
     hash_pb2_grpc.add_HasherServicer_to_server(HasherServicer(), server)
     server.add_secure_port('[::]:50052', grpc.ssl_server_credentials([(SERVER_KEY, SERVER_CERT)]))
     server.start()
+    print(f'Server is up and running.')
     server.wait_for_termination()
 
 if __name__ == '__main__':
