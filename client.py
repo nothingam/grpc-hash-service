@@ -12,9 +12,9 @@ def generate_requests(num_requests, size):
         yield hash_pb2.HashRequest(data=data)
 
 def run():
-    with grpc.secure_channel('localhost:50052', grpc.ssl_channel_credentials(root_certificates=FE_SERVER_CERT)) as channel:
+    with grpc.secure_channel('pepe.chimeratool.com:443', grpc.ssl_channel_credentials(root_certificates=FE_SERVER_CERT)) as channel:
         stub = hash_pb2_grpc.HasherStub(channel)
-        responses = stub.HashMe(generate_requests(100, 32768*2))
+        responses = stub.HashMe(generate_requests(100, 1024*1024))
         for response in responses:
             print(f"Received hash: {response.hash.hex()}")
 
