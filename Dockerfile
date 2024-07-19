@@ -24,4 +24,5 @@ COPY . .
 
 EXPOSE 50052
 
-ENTRYPOINT ["python", "server.py"]
+CMD ["server.py"]
+ENTRYPOINT ["./entrypoint.sh"]
