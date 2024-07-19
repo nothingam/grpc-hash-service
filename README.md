@@ -11,7 +11,7 @@ Minimal example of a service using bidirectional streaming with gRPC and Python.
 Build the image with the following command:
 
 ```
-$ docker build . -t grpc-hash-service:latst
+$ docker build . -t grpc-hash-service:latest
 ```
 
 Running the image **as a server**:
