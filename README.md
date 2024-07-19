@@ -23,7 +23,7 @@ $ docker run --rm -it grpc-hash-service:latest
 Running the image **as a client**:
 
 ```
-docker run --rm -it grpc-hash-service:latest client.py
+$ docker run --rm -it grpc-hash-service:latest client.py
 ```
 
 ## Arguments of `client.py`
@@ -31,7 +31,7 @@ docker run --rm -it grpc-hash-service:latest client.py
 It possible to modify the number of requests and the size of a request via CLI argument of the `client.py`.
 
 ```
-docker run --rm -it grpc-hash-service:latest client.py --num_requests 100 --size 1048576
+$ docker run --rm -it grpc-hash-service:latest client.py --num_requests 100 --size 1048576
 ```
 
 (These are the default values above.)
