@@ -1,6 +1,6 @@
 FROM python:3.12-bookworm AS builder
 
-RUN pip install poetry
+RUN pip install poetry && apt-get update && apt-get install -y build-essential autoconf libtool pkg-config
 
 ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_IN_PROJECT=1 \

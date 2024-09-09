@@ -7,6 +7,7 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 protobuf = "^5.28.0"
+grpcio = {git = "https://github.com/nothingam/grpc.git", rev = "tls-python-1.65.0"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
