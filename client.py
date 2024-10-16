@@ -15,7 +15,7 @@ def generate_requests(num_requests, size):
 
 def run(num_requests, size):
     print("Sending %d requests of size %d bytes" % (num_requests, size))
-    with grpc.secure_channel('pepe2.chimeratool.com:443', grpc.tls_channel_credentials(root_certificates=FE_SERVER_CERT, key_log_file_path=".client-key.log")) as channel:
+    with grpc.secure_channel('pepe2.chimeratool.com:443', grpc.ssl_channel_credentials(root_certificates=FE_SERVER_CERT)) as channel:
         stub = hash_pb2_grpc.HasherStub(channel)
         responses = stub.HashMe(generate_requests(num_requests, size))
         for response in responses:
