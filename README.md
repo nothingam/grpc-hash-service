@@ -68,3 +68,4 @@ $ poetry run python client.py
 $ poetry shell
 ```
 
+More info on poetry: https://python-poetry.org/ .
