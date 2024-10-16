@@ -23,7 +23,7 @@ def run(num_requests, size, host, port, server_cert):
 if __name__ == '__main__':
     args = argparse.ArgumentParser(description='Client for the hash service')
     args.add_argument('--host', type=str, default='pepe2.chimeratool.com', help='Host to connect to')
-    args.add_argument('--port', type=int, default=443, help='Host to connect to')
+    args.add_argument('--port', type=int, default=443, help='Port to connect to')
     args.add_argument('--num_requests', type=int, default=100, help='Number of requests to send')
     args.add_argument('--size', type=int, default=1024*1024, help='Size of each request in bytes')
     args.add_argument('--server_cert', type=str, default='./certs/fe-server.crt', help='Server crt')
