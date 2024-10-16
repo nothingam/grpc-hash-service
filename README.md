@@ -1,6 +1,6 @@
 # Hash service
 
-Minimal example of a service using bidirectional streaming with gRPC and Python. 
+Minimal example of a service using bidirectional streaming with gRPC and Python.
 
 * `server.py` creates a secure channel with a self-signed certificate.
 * `client.py` sends a message to the server and receives the hash of the message.
@@ -45,3 +45,26 @@ $ docker run --rm -it grpc-hash-service:latest client.py --num_requests 100 --si
 (These are the default values above.)
 
 Also there is a `--help` option for more details.
+
+## Installing from source
+
+Project uses `poetry` for dependency management. Install the dependencies with the following command:
+
+```bash
+$ git clone https://github.com/nothingam/grpc-hash-service.git
+$ cd grpc-hash-service
+$ poetry install
+```
+
+... after installation you can run the client with the following command:
+
+```bash
+$ poetry run python client.py
+```
+
+... or spawn a new shell with the following command:
+
+```bash
+$ poetry shell
+```
+
